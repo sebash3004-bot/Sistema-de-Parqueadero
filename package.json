@@ -1,0 +1,27 @@
+{
+  "name": "sistema-de-parqueadero",
+  "version": "1.0.0",
+  "description": "Sistema integral de control de parqueaderos con módulos de seguridad y facturación.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebash3004-bot/Sistema-de-Parqueadero.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/sebash3004-bot/Sistema-de-Parqueadero/issues"
+  },
+  "homepage": "https://github.com/sebash3004-bot/Sistema-de-Parqueadero#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "helmet": "^8.1.0",
+    "morgan": "^1.10.1"
+  }
+}
