@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Control Pro | Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>SISTEMA DE CONTROL DE PARQUEADERO</h1>
+        <div id="status-indicator">Sistema Activo</div>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>Registro de Entrada</h2>
+            <form id="entry-form">
+                <input type="text" id="user-name" placeholder="Nombre del Usuario" required>
+                <input type="text" id="vehicle-plate" placeholder="Placa del Vehículo" required>
+                <select id="vehicle-type">
+                    <option value="automovil">Automóvil</option>
+                    <option value="motocicleta">Motocicleta</option>
+                </select>
+                <select id="payment-method">
+                    <option value="Efectivo">Efectivo</option>
+                    <option value="Tarjeta">Tarjeta</option>
+                    <option value="Transferencia">Transferencia</option>
+                </select>
+                <button type="submit" class="btn-primary">Escanear y Registrar</button>
+            </form>
+        </section>
+
+        <section class="card">
+            <h2>Procesar Salida</h2>
+            <div class="search-box">
+                <input type="text" id="exit-plate" placeholder="Ingrese Placa para Salida">
+                <button onclick="processExit()" class="btn-secondary">Calcular Tarifa</button>
+            </div>
+        </section>
+
+        <section id="invoice-section" class="card hidden">
+            <h2>Factura de Cobro</h2>
+            <pre id="invoice-content"></pre>
+            <button onclick="window.print()" class="btn-print">Imprimir Factura</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

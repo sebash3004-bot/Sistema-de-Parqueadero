@@ -1,26 +1,39 @@
 const express = require('express');
 const helmet = require('helmet');
 const morgan = require('morgan');
+const path = require('path'); // Librería nativa para manejar rutas de archivos
 require('dotenv').config();
 
-// Importar rutas
+// Importar rutas de la aplicación
 const parkingRoutes = require('./routes/parkingRoutes');
 
 const app = express();
 
-// Middlewares Globales
-app.use(helmet()); // Seguridad premium para headers
-app.use(morgan('dev')); // Logs de peticiones en consola
-app.use(express.json()); // Parseo de JSON
+/**
+ * CONFIGURACIÓN DE MIDDLEWARES (Seguridad y Utilidades)
+ */
+app.use(helmet({
+    contentSecurityPolicy: false, // Desactivado temporalmente para facilitar pruebas locales con el frontend
+})); 
+app.use(morgan('dev')); 
+app.use(express.json()); 
 
-// Implementación de Rutas
+/**
+ * SERVIR ARCHIVOS ESTÁTICOS
+ * Esta línea permite que el navegador acceda a la carpeta 'public' (HTML, CSS, JS)
+ */
+app.use(express.static(path.join(__dirname, '../public')));
+
+/**
+ * DEFINICIÓN DE RUTAS API
+ */
 app.use('/api/v1/parking', parkingRoutes);
 
-// Ruta de salud del sistema
+// Endpoint de salud del sistema
 app.get('/api/v1/health', (req, res) => {
     res.status(200).json({ 
         status: 'Online', 
-        message: 'Sistema de Control de Parqueadero Operativo' 
+        message: 'Sistema de Control de Parqueadero Operativo y Frontend Vinculado' 
     });
 });
 
