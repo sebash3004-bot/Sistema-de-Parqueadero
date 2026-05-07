@@ -1,4 +1,4 @@
-const app = require('./src/app');
+const app = require('./app'); // Al estar en la misma carpeta 'src', se usa ./app
 
 const PORT = process.env.PORT || 3000;
 
